@@ -19,8 +19,9 @@ for i in range(n):
     for j in range(n):
         for k in range(n):
             now=biggest(i,j,k)
-            if((now*m)>=digprice(k) and best<now):
+            if((now*m)>=digprice(k) and best<=now):
                 best=now
-if(all(a)):
-    best=n*n
+            if(best==(n*n)-1):
+                best+=1
+
 print(best)
