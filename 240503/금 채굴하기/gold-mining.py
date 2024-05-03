@@ -1,6 +1,5 @@
 n, m = map(int, input().split())
 a = [list(map(int, input().split())) for _ in range(n)]
-
 best=0
 
 def biggest(x,y,k):#갯수 세기
@@ -22,6 +21,6 @@ for i in range(n):
             now=biggest(i,j,k)
             if((now*m)>=digprice(k) and best<now):
                 best=now
-if(not(0 in a)):
+if(all(a)):
     best=n*n
 print(best)
