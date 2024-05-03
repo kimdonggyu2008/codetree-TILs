@@ -1,8 +1,6 @@
 n, m = map(int, input().split())
 a = [list(map(int, input().split())) for _ in range(n)]
 
-filter=[[0]*n]*n
-
 best=0
 
 def biggest(k,x,y):
