@@ -21,7 +21,7 @@ for i in range(n):
             now=biggest(i,j,k)
             if((now*m)>=digprice(k) and best<=now):
                 best=now
-            if(best==(n*n)-1):
+            if(best==(n*n)-1 and n!=1):
                 best+=1
 
 print(best)
