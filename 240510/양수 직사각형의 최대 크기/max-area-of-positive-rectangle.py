@@ -1,3 +1,4 @@
+"""
 import sys
 INT_MIN=-sys.maxsize
 
@@ -29,36 +30,35 @@ if __name__=="__main__":
     print(result)
 """
 
-import sys
+n, m = map(int, input().split())
 
-INT_MIN = -sys.maxsize
+matrix = [list(map(int, input().split())) for _ in range(n)]
+res = -1
+
+def canCal(x, y, r, c):
+    if 0 <= x and x + c < m and 0 <= y and y + r < n:
+        return True
+    else:
+        return False
+
+def cal(x, y, r, c):
+    for i in range(c + 1):
+        for j in range(r + 1):
+            if matrix[y + j][x + i] <= 0:
+                return False
+    return True
 
 
-def find_max_sum(matrix):
-    n, m = len(matrix), len(matrix[0])
-    msisdp = [[0 for _ in range(m)] for _ in range(n)]  # Maximum Sum in Single Subarray (DP table)
-    max_size = 0
-    max_so_far = INT_MIN
-
+def simul(x, y):
+    global res
     for i in range(n):
         for j in range(m):
-            msisdp[i][j] = matrix[i][j]
+            if canCal(x, y, i, j):
+                if cal(x, y, i, j):
+                    res = max(res, (j+1) * (i+1))
 
-            if i > 0 and msisdp[i - 1][j] > 0:
-                msisdp[i][j] += msisdp[i - 1][j]
+for i in range(n):
+    for j in range(m):
+        simul(j, i)
 
-    for i in range(n):
-        for j in range(m):
-            if msisdp[i][j] > max_so_far:
-                max_so_far = msisdp[i][j]
-                max_size = (i + 1) * (j + 1)
-
-    return max_size
-
-
-if __name__ == "__main__":
-    n, m = map(int, input().split())
-    matrix = [[int(x) for x in input().split()] for _ in range(n)]
-    result = find_max_sum(matrix)
-    print(result)
-"""
+print(res)
