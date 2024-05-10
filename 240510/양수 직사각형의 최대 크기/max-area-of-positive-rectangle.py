@@ -1,4 +1,3 @@
-"""
 import sys
 INT_MIN=-sys.maxsize
 
@@ -17,6 +16,8 @@ def find_max(n,m):
                     if(temp>max_sum):
                         max_sum=temp
                         max_size=(l-i+1)*(k-j+1)
+    if max_sum<0:
+        max_size=-1
     return max_size
 
 
@@ -60,3 +61,4 @@ if __name__ == "__main__":
     matrix = [[int(x) for x in input().split()] for _ in range(n)]
     result = find_max_sum(matrix)
     print(result)
+"""
