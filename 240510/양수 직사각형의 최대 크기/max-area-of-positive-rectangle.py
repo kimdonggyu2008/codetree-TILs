@@ -13,7 +13,6 @@ def find_max(n,m):
                     if(temp>max_sum):
                         max_sum=temp
                         max_size=(l-i+1)*(k-j+1)
-
     return max_size
 
 
