@@ -1,9 +1,12 @@
+import sys
+INT_MIN=-sys.maxsize
+
 def howmuch(x1,y1,x2,y2):
     return sum([a[i][j] for i in range(x1,x2+1) for j in range(y1,y2+1)])
 
 
 def find_max(n,m):
-    max_sum=-9999999
+    max_sum=INT_MIN
     max_size=0
     for i in range(n):
         for j in range(m):
@@ -13,6 +16,7 @@ def find_max(n,m):
                     if(temp>max_sum):
                         max_sum=temp
                         max_size=(l-i+1)*(k-j+1)
+
     return max_size
 
 
