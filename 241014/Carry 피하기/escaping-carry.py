@@ -27,7 +27,7 @@ def max_no_carry_numbers(numbers):
                     break
 
             if valid_comb:
-                max_count=max(max_count,len(comb))-1
+                max_count=max(max_count,len(comb))
     return max_count
 
 
