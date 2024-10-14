@@ -15,12 +15,13 @@ def max_no_carry_numbers(numbers):
     n=len(numbers)
     max_count=0
 
-    for r in range(1,n):
+    for r in range(1,n+1):
         for comb in combinations(numbers,r):
             valid_comb=True
             for i in range(len(comb)):
-                for j in range(i+1,len(comb)):
-                    if not carry(comb[i],comb[j]):
+                for j in range(i,len(comb)):
+                    temp=sum(comb[:i])
+                    if not carry(temp,comb[j]):
                         valid_comb=False
                         break
                 if not valid_comb:
