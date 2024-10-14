@@ -4,7 +4,7 @@ def carry(a,b):
     while a>0 or b>0:
         digit_a=a%10
         digit_b=b%10
-        if digit_a+digit_b>10:
+        if digit_a+digit_b>=10:
             return False
         a//=10
         b//=10
